@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Question!</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            /* Changed to a neutral, modern soft green/grey */
+            background-color: #f0f4f0; 
+            font-family: 'Inter', -apple-system, sans-serif;
+            overflow: hidden;
+            text-align: center;
+            color: #2d3436;
+        }
+
+        #container {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+            z-index: 10;
+            max-width: 400px;
+        }
+
+        h1 {
+            color: #2d3436;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .gif-container img {
+            max-width: 220px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+            position: relative;
+            height: 60px; /* Space for the jumping button */
+            align-items: center;
+        }
+
+        button {
+            padding: 12px 28px;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        #yesBtn {
+            background-color: #55efc4; /* Fresh mint green */
+            color: #004d3d;
+        }
+
+        #yesBtn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(85, 239, 196, 0.4);
+        }
+
+        #noBtn {
+            background-color: #dfe6e9; /* Light grey */
+            color: #636e72;
+            position: absolute;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #successSection h1 {
+            color: #00b894;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="container">
+        <div id="askSection">
+            <h1 id="question">Would you be down to hang out this weekend? 🥺</h1>
+            <div class="gif-container">
+                <img id="mainGif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpwaGZicWxqbmR6Zmw1bmN4bm56Z3R6Z3R6Z3R6Z3R6Z3R6Z3R6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/26hpKz7zMQZKgL1S0/giphy.gif" alt="begging chicken">
+            </div>
+            <div class="buttons">
+                <button id="yesBtn">Yes, let's!</button>
+                <button id="noBtn">No</button>
+            </div>
+        </div>
+
+        <div id="successSection" class="hidden">
+            <h1>Awesome! Checking my calendar now... 🙌</h1>
+            <div class="gif-container">
+                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpwaGZicWxqbmR6Zmw1bmN4bm56Z3R6Z3R6Z3R6Z3R6Z3R6Z3R6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/kyLYXonQYYItYgTKTZ/giphy.gif" alt="celebrating chicken">
+            </div>
+            <p style="color: #636e72;">I'll text you the details!</p>
+        </div>
+    </div>
+
+    <script>
+        const noBtn = document.getElementById('noBtn');
+        const yesBtn = document.getElementById('yesBtn');
+        const askSection = document.getElementById('askSection');
+        const successSection = document.getElementById('successSection');
+
+        function moveButton() {
+            // Limits the jump so it stays visible on screen but far from the mouse
+            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+            
+            noBtn.style.left = `${x}px`;
+            noBtn.style.top = `${y}px`;
+        }
+
+        noBtn.addEventListener('mouseover', moveButton);
+        noBtn.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            moveButton();
+        });
+
+        yesBtn.addEventListener('click', () => {
+            askSection.classList.add('hidden');
+            successSection.classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>
