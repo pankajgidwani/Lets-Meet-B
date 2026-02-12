@@ -1,82 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quick Question!</title>
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f4f0; 
-            font-family: 'Inter', -apple-system, sans-serif;
-            overflow: hidden;
-            text-align: center;
-            color: #2d3436;
-        }
-
-        #container {
-            background: white;
-            padding: 2rem;
-            border-radius: 24px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
-            max-width: 350px;
-            width: 90%;
-        }
-
-        h1 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-        }
-
-        .gif-container img {
-            width: 100%;
-            max-width: 200px;
-            border-radius: 15px;
-            margin-bottom: 20px;
-        }
-
-        .buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            height: 50px;
-            position: relative; /* Keeps button inside initially */
-        }
-
-        button {
-            padding: 10px 25px;
-            font-size: 1rem;
-            font-weight: 600;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: transform 0.1s ease;
-        }
-
-        #yesBtn {
-            background-color: #55efc4;
-            color: #004d3d;
-            z-index: 1;
-        }
-
-        #noBtn {
-            background-color: #dfe6e9;
-            color: #636e72;
-            z-index: 2;
-            transition: none; /* Instant jump */
-        }
-
-        .hidden {
-            display: none;
-        }
-    </style>
-</head>
-<body>
-
-    <div id="container">
-        <div id
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Ask For Date</title>
+  </head>
+  <body>
+    <img src="assets/date.png" alt="date?" class="header-img" />
+    <div class="container" id="container">
+      <img src="assets/erm-fingers.gif" alt="please" class="image-1" />
+      <img src="assets/oh-yay.gif" alt="yes" class="image-2 hide" />
+      <button class="btn btn-yes">Yes</button>
+      <button class="btn btn-no">No</button>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
